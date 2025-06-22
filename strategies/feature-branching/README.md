@@ -2,6 +2,26 @@
 
 This strategy involves creating separate branches for each new feature or bug fix. This allows developers to work on different features independently, without affecting the main codebase, and then merge their changes back in through pull requests after testing and review.
 
+```mermaid
+gitGraph
+   checkout main
+   commit id: "Initial commit"
+   commit id: "Production ready code"
+   branch hotfix/1234
+   checkout hotfix/1234
+   commit id: "Minor prod fix"
+   checkout main
+   branch feature/login-page
+   checkout feature/login-page
+   commit id: "Build login form"
+   commit id: "Add validation logic"
+   checkout main
+   merge hotfix/1234 tag: "PR merged"
+   checkout feature/login-page
+   merge main tag: "PR merged"
+   commit id: "Post-merge changes"
+```
+
 ## Key Concepts
 
 - **Branch Naming:**
